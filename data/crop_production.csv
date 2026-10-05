@@ -1,0 +1,35 @@
+﻿RegionCode,State,Crop,Production
+0,Australia,Wheat,31922555
+1,New South Wales,Wheat,12972151
+2,Victoria,Wheat,4525002
+3,Queensland,Wheat,1594192
+4,South Australia,Wheat,3982208
+5,Western Australia,Wheat,8792706
+6,Tasmania,Wheat,56295
+0,Australia,Barley,14648581
+1,New South Wales,Barley,4257988
+2,Victoria,Barley,2918480
+3,Queensland,Barley,434362
+4,South Australia,Barley,2395385
+5,Western Australia,Barley,4611219
+6,Tasmania,Barley,30840
+0,Australia,Canola,4756388
+1,New South Wales,Canola,1532184
+2,Victoria,Canola,1127092
+3,Queensland,Canola,1189
+4,South Australia,Canola,402273
+5,Western Australia,Canola,1689347
+6,Tasmania,Canola,4303
+0,Australia,Oats,1897990
+1,New South Wales,Oats,644979
+2,Victoria,Oats,334292
+3,Queensland,Oats,60976
+4,South Australia,Oats,161430
+5,Western Australia,Oats,688251
+6,Tasmania,Oats,7221
+0,Australia,Sorghum,1638962
+1,New South Wales,Sorghum,554179
+2,Victoria,Sorghum,5279
+3,Queensland,Sorghum,1071740
+4,South Australia,Sorghum,1438
+5,Western Australia,Sorghum,2610
