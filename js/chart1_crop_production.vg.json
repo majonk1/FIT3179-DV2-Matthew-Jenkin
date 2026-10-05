@@ -1,0 +1,98 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Production of Major Crops",
+    "subtitle": {
+    "expr": "StateSelection + ' 2020–21'"
+    }
+},
+    "width": 600,
+    "height": 300,
+    "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 60,
+    "bottom": 5
+},
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/crop_production.csv"
+    },
+    "params": [
+    {
+        "name": "StateSelection",
+        "value": "Australia",
+        "bind": {
+        "input": "select",
+        "options": [
+            "Australia",
+            "New South Wales",
+            "Victoria",
+            "Queensland",
+            "South Australia",
+            "Western Australia",
+            "Tasmania"
+        ],
+        "name": "Select region"
+        }
+    }
+    ],
+    "transform": [
+    {
+        "filter": "datum.State == StateSelection"
+    }
+    ],
+    "layer": [
+    {
+        "mark": {
+        "type": "bar",
+        "color": "#789A49",
+        "cornerRadiusEnd": 3
+        }
+    },
+    {
+        "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "fontSize": 12,
+        "clip": false
+        },
+        "encoding": {
+        "text": {
+            "field": "Production",
+            "type": "quantitative",
+            "format": ".3~s"
+        }
+        }
+    }
+    ],
+    "encoding": {
+    "y": {
+        "field": "Crop",
+        "type": "nominal",
+        "sort": "-x",
+        "title": null
+        },
+        "x": {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Production (tonnes)",
+        "axis": {
+            "format": "~s"
+        }
+        },
+        "tooltip": [{
+        "field": "Crop",
+        "type": "nominal",
+        "title": "Crop"
+        },
+        {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Production (tonnes)",
+        "format": ",.0f"
+        }
+    ]
+    }
+}

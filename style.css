@@ -12,3 +12,38 @@ h1 {
 h2 {
     color: #789a49;
 }
+.visualisation-section{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+#crop-production-chart{
+    margin-top: 20px;
+}
+#crop-production-chart .vega-bind{
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #303a2b;
+    margin-top: 8px;
+}
+#crop-production-chart .vega-bind-name{
+    font-size: 13px;
+    font-weight: normal;
+    margin-right: 8px;
+}
+#crop-production-chart select{
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    padding: 3px 8px;
+}
+.visualisation-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+}
+.visualisation-text {
+    grid-column: 1;
+}
+.visualisation-chart {
+    grid-column: 2;
+}
