@@ -1,6 +1,6 @@
 vegaEmbed(
     "#crop-production-chart",
-    "js/chart1_crop_production.vg.json",
+    "vegalite_visualisations/chart1_crop_production.vg.json",
     {
         actions: false
     }

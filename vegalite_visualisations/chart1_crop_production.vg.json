@@ -3,7 +3,7 @@
     "title": {
     "text": "Production of Major Crops",
     "subtitle": {
-    "expr": "StateSelection + ' 2020–21'"
+    "expr": "StateSelection + ' 2020-21'"
     }
 },
     "width": 600,
