@@ -1,0 +1,18 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Test Visualisation",
+    "data": {
+    "url": "data/test.csv"
+            },
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "category",
+            "type": "nominal"
+        },
+        "y": {
+            "field": "value",
+            "type": "quantitative"
+        }
+    }
+}
