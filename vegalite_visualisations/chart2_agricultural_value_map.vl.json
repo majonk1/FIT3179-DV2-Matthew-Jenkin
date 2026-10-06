@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 450,
+    "title": {
+    "text": "Value of Agricultural Production by State",
+    "subtitle": "Australia, 2020–21"
+    },
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/australia_states.geojson",
+    "format": {
+        "type": "json",
+        "property": "features"
+    }
+    },
+    "params": [
+    {
+        "name": "hover",
+        "select": {
+        "type": "point",
+        "on": "pointerover",
+        "clear": "pointerout"
+        }
+    }
+    ],
+    "transform": [
+    {
+        "lookup": "properties.STATE_CODE",
+        "from": {
+        "data": {
+            "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/agricultural_value.csv"
+        },
+        "key": "RegionCode",
+        "fields": [
+            "State",
+            "GrossValue"
+        ]
+        }
+    }
+    ],
+    "projection": {
+    "type": "mercator"
+    },
+    "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 1
+    },
+    "encoding": {
+    "color": {
+        "field": "GrossValue",
+        "type": "quantitative",
+        "title": "Gross value ($)",
+        "scale": {
+        "scheme": "greens"
+        },
+        "legend": {
+        "labelExpr": "'$' + format(datum.value / 1000000000, '.0f') + 'B'"
+        }
+    },
+    "tooltip": [
+        {
+        "field": "State",
+        "type": "nominal",
+        "title": "State"
+        },
+        {
+        "field": "GrossValue",
+        "type": "quantitative",
+        "title": "Gross agricultural value",
+        "format": "$,.0f"
+        }
+    ],
+    "opacity": {
+        "condition": {
+        "param": "hover",
+        "value": 1
+        },
+        "value": 0.8
+    }
+    }
+}

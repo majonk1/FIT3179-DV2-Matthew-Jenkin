@@ -41,9 +41,9 @@ h2 {
     gap: 40px;
     align-items: start;
 }
-.visualisation-text {
-    grid-column: 1;
+.visualisation-row.reverse {
+    grid-template-columns: 2fr 1fr;
 }
-.visualisation-chart {
-    grid-column: 2;
+.map-text {
+    transform: translateY(-17px);
 }
