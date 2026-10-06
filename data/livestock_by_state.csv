@@ -1,0 +1,24 @@
+RegionCode,State,Livestock,Number
+1,New South Wales,Cattle,4430253.90
+2,Victoria,Cattle,3576653.50
+3,Queensland,Cattle,10728618.93
+4,South Australia,Cattle,1047764.60
+5,Western Australia,Cattle,2132146.38
+6,Tasmania,Cattle,780072.67
+7,Northern Territory,Cattle,1731706.56
+8,Australian Capital Territory,Cattle,3957.14
+1,New South Wales,Sheep,24711533.65
+2,Victoria,Sheep,15360673.17
+3,Queensland,Sheep,2079829.38
+4,South Australia,Sheep,10777694.20
+5,Western Australia,Sheep,12714683.71
+6,Tasmania,Sheep,2371245.01
+7,Northern Territory,Sheep,100.00
+8,Australian Capital Territory,Sheep,31642.68
+1,New South Wales,Pigs,543335.49
+2,Victoria,Pigs,496915.97
+3,Queensland,Pigs,754884.62
+4,South Australia,Pigs,379712.55
+5,Western Australia,Pigs,391412.12
+6,Tasmania,Pigs,11297.97
+7,Northern Territory,Pigs,38.16
