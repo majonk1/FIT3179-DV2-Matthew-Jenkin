@@ -4,7 +4,7 @@
     "height": 450,
     "title": {
     "text": "Value of Agricultural Production by State",
-    "subtitle": "Australia, 2020–21"
+    "subtitle": "Australia 2020–21"
     },
     "data": {
     "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/australia_states.geojson",

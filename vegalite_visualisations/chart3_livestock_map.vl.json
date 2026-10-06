@@ -1,0 +1,129 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 450,
+    "title": {
+    "text": "Livestock Across Australia",
+    "subtitle": "Number of livestock by state and territory 2020–21"
+    },
+    "projection": {
+    "type": "mercator"
+    },
+    "params": [
+    {
+        "name": "LivestockSelection",
+        "value": "Cattle",
+        "bind": {
+        "input": "select",
+        "options": [
+            "Cattle",
+            "Sheep",
+            "Pigs"
+        ],
+        "name": "Select livestock"
+        }
+    }
+    ],
+    "layer": [
+    {
+        "data": {
+        "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/australia_states.geojson",
+        "format": {
+            "type": "json",
+            "property": "features"
+        }
+        },
+        "mark": {
+        "type": "geoshape",
+        "fill": "#e8e5dc",
+        "stroke": "white",
+        "strokeWidth": 1
+        }
+    },
+    {
+        "data": {
+        "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/livestock_by_state.csv"
+        },
+        "params": [
+        {
+            "name": "livestockHover",
+            "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout"
+            }
+        }
+        ],
+        "transform": [
+        {
+            "filter": "datum.Livestock == LivestockSelection"
+        },
+        {
+            "calculate": "datum.RegionCode == 1 ? 147.0 : datum.RegionCode == 2 ? 144.5 : datum.RegionCode == 3 ? 145.0 : datum.RegionCode == 4 ? 135.5 : datum.RegionCode == 5 ? 121.0 : datum.RegionCode == 6 ? 146.5 : datum.RegionCode == 7 ? 133.5 : 149.1",
+            "as": "Longitude"
+        },
+        {
+            "calculate": "datum.RegionCode == 1 ? -32.5 : datum.RegionCode == 2 ? -36.5 : datum.RegionCode == 3 ? -22.5 : datum.RegionCode == 4 ? -30.0 : datum.RegionCode == 5 ? -26.0 : datum.RegionCode == 6 ? -42.0 : datum.RegionCode == 7 ? -19.5 : -35.3",
+            "as": "Latitude"
+        }
+        ],
+        "mark": {
+        "type": "circle",
+        "stroke": "#3f5f3b",
+        "strokeWidth": 1
+        },
+        "encoding": {
+        "longitude": {
+            "field": "Longitude",
+            "type": "quantitative"
+        },
+        "latitude": {
+            "field": "Latitude",
+            "type": "quantitative"
+        },
+        "size": {
+        "field": "Number",
+        "type": "quantitative",
+        "title": "Number of livestock",
+        "scale": {
+            "range": [50, 3000]
+        },
+        "legend": {
+            "title": "Number of livestock",
+            "labelExpr": "LivestockSelection == 'Pigs' ? (datum.value == 0 ? '< 200K' : format(datum.value / 1000, '.0f') + 'K') : LivestockSelection == 'Sheep' ? (datum.value == 0 ? '< 5M' : format(datum.value / 1000000, '.0f') + 'M') : (datum.value == 0 ? '< 2M' : format(datum.value / 1000000, '.0f') + 'M')",
+            "labelAlign": "right",
+            "labelOffset": 35
+        }
+        },
+        "color": {
+            "value": "#789A49"
+        },
+        "tooltip": [
+            {
+            "field": "State",
+            "type": "nominal",
+            "title": "State"
+            },
+            {
+            "field": "Livestock",
+            "type": "nominal",
+            "title": "Livestock"
+            },
+            {
+            "field": "Number",
+            "type": "quantitative",
+            "title": "Number",
+            "format": ",.0f"
+            }
+        ],
+        "opacity": {
+            "condition": {
+            "param": "livestockHover",
+            "value": 1
+            },
+            "value": 0.65
+        }
+        }
+    }
+    ]
+}

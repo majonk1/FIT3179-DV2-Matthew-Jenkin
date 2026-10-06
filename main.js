@@ -12,3 +12,10 @@ vegaEmbed(
         actions:false
     }
 ).catch(console.error);
+vegaEmbed(
+    "#livestock-map",
+    "vegalite_visualisations/chart3_livestock_map.vl.json",
+    {
+        actions: false
+    }
+).catch(console.error);

@@ -47,3 +47,22 @@ h2 {
 .map-text {
     transform: translateY(-17px);
 }
+#livestock-map .vega-bind {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #303a2b;
+    margin-top: 8px;
+}
+#livestock-map .vega-bind-name {
+    font-size: 13px;
+    font-weight: normal;
+    margin-right: 8px;
+}
+#livestock-map select {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    padding: 3px 8px;
+}
+.livestock-text {
+    transform: translateY(-17px);
+}
