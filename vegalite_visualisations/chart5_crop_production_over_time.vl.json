@@ -1,0 +1,215 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Australian Crop Production Over Time",
+    "subtitle": "Production of five major crops 1985–86 to 2021–22",
+    "anchor": "start"
+    },
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/crop_production_over_time.csv"
+    },
+    "transform": [
+    {
+        "calculate": "toNumber(slice(datum.Year, 0, 4))",
+        "as": "YearStart"
+    }
+    ],
+    "vconcat": [
+    {
+        "width": "container",
+        "height": 350,
+        "mark": {
+        "type": "line",
+        "strokeWidth": 2
+        },
+        "params": [
+            {
+                "name": "hoverCrop",
+                "select": {
+                    "type": "point",
+                    "fields": ["Crop"],
+                    "on": "pointerover",
+                    "clear": "pointerout"
+                }
+            }
+        ],
+        "encoding": {
+        "x": {
+            "field": "YearStart",
+            "type": "quantitative",
+            "scale": {
+            "domain": {"param": "brush"},
+            "nice": false,
+            "padding": 0
+            },
+            "axis": {
+            "title": "Year",
+            "format": "d",
+            "tickMinStep": 1,
+            "grid": false
+            }
+        },
+        "y": {
+            "field": "Production",
+            "type": "quantitative",
+            "title": "Production (tonnes, log scale)",
+            "scale": {
+            "type": "log",
+            "domain": [10000, 100000000]
+            },
+            "axis": {
+            "values": [
+                10000,
+                100000,
+                1000000,
+                10000000,
+                100000000
+            ],
+            "format": "~s",
+            "grid": true,
+            "gridColor": "#E8E8E8",
+            "gridOpacity": 0.5,
+            "ticks": false,
+            "domain": false,
+            "labelPadding": 10,
+            "titlePadding": 15
+            }
+        },
+        "color": {
+            "field": "Crop",
+            "type": "nominal",
+            "title": "Crop",
+            "scale": {
+            "domain": [
+                "Wheat",
+                "Barley",
+                "Canola",
+                "Oats",
+                "Sorghum"
+            ],
+            "range": [
+                "#4C78A8",
+                "#F2A541",
+                "#54A24B",
+                "#9467BD",
+                "#72B7B2"
+            ]
+            }
+        },
+        "opacity": {
+            "condition": {
+                "param": "hoverCrop",
+                "value": 1
+            },
+            "value": 0.3
+        },
+        "tooltip": [
+            {
+            "field": "Year",
+            "type": "nominal",
+            "title": "Financial year"
+            },
+            {
+            "field": "Crop",
+            "type": "nominal",
+            "title": "Crop"
+            },
+            {
+            "field": "Production",
+            "type": "quantitative",
+            "title": "Production (tonnes)",
+            "format": ",.0f"
+            }
+        ]
+        }
+    },
+    {
+        "width": "container",
+        "height": 100,
+        "title": {
+        "text": "Drag to select a time period",
+        "fontSize": 12,
+        "anchor": "start"
+        },
+        "params": [
+        {
+            "name": "brush",
+            "select": {
+            "type": "interval",
+            "encodings": ["x"]
+            }
+        }
+        ],
+        "mark": {
+        "type": "line",
+        "strokeWidth": 1.5
+        },
+        "encoding": {
+        "x": {
+            "field": "YearStart",
+            "type": "quantitative",
+            "scale": {
+            "domain": [1985, 2021],
+            "nice": false,
+            "padding": 0
+            },
+            "axis": {
+            "title": "Year",
+            "format": "d",
+            "tickMinStep": 1,
+            "grid": false
+            }
+        },
+        "y": {
+            "field": "Production",
+            "type": "quantitative",
+            "title": null,
+            "scale": {
+            "type": "log",
+            "domain": [10000, 100000000]
+            },
+            "axis": {
+            "values": [
+                10000,
+                100000,
+                1000000,
+                10000000,
+                100000000
+            ],
+            "format": "~s",
+            "grid": false,
+            "ticks": false,
+            "domain": false
+            }
+        },
+        "color": {
+            "field": "Crop",
+            "type": "nominal",
+            "title": "Crop",
+            "scale": {
+            "domain": [
+                "Wheat",
+                "Barley",
+                "Canola",
+                "Oats",
+                "Sorghum"
+            ],
+            "range": [
+                "#4C78A8",
+                "#F2A541",
+                "#54A24B",
+                "#9467BD",
+                "#72B7B2"
+            ]
+            },
+            "legend": null
+        }
+        }
+    }
+    ],
+    "resolve": {
+    "scale": {
+        "x": "independent"
+    }
+    }
+}

@@ -26,3 +26,10 @@ vegaEmbed(
         actions: false
     }
 );
+vegaEmbed(
+    "#crop-production-over-time-chart",
+    "vegalite_visualisations/chart5_crop_production_over_time.vl.json",
+    {
+        actions: false
+    }
+);

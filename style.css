@@ -93,3 +93,14 @@ h2 {
 .wheat-text {
     transform: translateY(-3px);
 }
+.crop-history-row {
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+}
+.crop-history-text {
+    transform: translateY(0px);
+}
+#crop-production-over-time-chart {
+    width: 100%;
+    min-width: 0;
+}
