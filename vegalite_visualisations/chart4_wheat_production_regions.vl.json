@@ -1,0 +1,117 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Australia's Top Wheat Producing Regions",
+    "subtitle": "Top 10 Australian regions by wheat production 2020–21",
+    "anchor": "start"
+    },
+    "width": 600,
+    "height": 350,
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/wheat_production_by_region.csv",
+    "format": {
+        "type": "csv",
+        "parse": {
+        "Production": "number"
+        }
+    }
+    },
+    "transform": [
+    {
+        "window": [
+        {
+            "op": "rank",
+            "as": "Rank"
+        }
+        ],
+        "sort": [
+        {
+            "field": "Production",
+            "order": "descending"
+        }
+        ]
+    },
+    {
+        "filter": "datum.Rank <= 10"
+    }
+    ],
+    "encoding": {
+    "y": {
+        "field": "Region",
+        "type": "nominal",
+        "sort": {
+        "field": "Production",
+        "order": "descending"
+        },
+        "title": null
+    },
+    "x": {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Wheat Production (tonnes)",
+        "axis": {
+        "format": "~s"
+        }
+    },
+    "tooltip": [
+        {
+        "field": "Rank",
+        "type": "quantitative",
+        "title": "Rank",
+        "format": ".0f"
+        },
+        {
+        "field": "Region",
+        "type": "nominal",
+        "title": "Region"
+        },
+        {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Wheat Production (t)",
+        "format": ",.0f"
+        }
+    ]
+    },
+    "layer": [
+    {
+        "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#789A49"
+        },
+        "encoding": {
+        "x2": {
+            "datum": 0
+        }
+        }
+    },
+    {
+        "params": [
+        {
+            "name": "region_hover",
+            "select": {
+            "type": "point",
+            "fields": ["Region"],
+            "on": "mouseover",
+            "clear": "mouseout"
+            }
+        }
+        ],
+        "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 140
+        },
+        "encoding": {
+        "color": {
+            "condition": {
+            "param": "region_hover",
+            "value": "#3f5f3b"
+            },
+            "value": "#789A49"
+        }
+        }
+    }
+    ]
+}

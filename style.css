@@ -44,9 +44,6 @@ h2 {
 .visualisation-row.reverse {
     grid-template-columns: 2fr 1fr;
 }
-.map-text {
-    transform: translateY(-17px);
-}
 #livestock-map .vega-bind {
     font-family: Arial, sans-serif;
     font-size: 13px;
@@ -63,6 +60,36 @@ h2 {
     font-size: 13px;
     padding: 3px 8px;
 }
-.livestock-text {
-    transform: translateY(-17px);
+.wheat-row {
+    margin-top: 50px;
+}
+.wheat-row {
+    margin-top: 50px;
+    align-items: stretch;
+}
+.wheat-text {
+    line-height: 1.35;
+}
+.wheat-text h3 {
+    color: #3f5f3b;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.visualisation-text h3 {
+    font-size: 14px;
+    color: #3f5f3b;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+.visualisation-text {
+    font-size: 12px;
+}
+.visualisation-section > h2 {
+    margin-bottom: 30px;
+}
+.crop-text {
+    transform: translateY(18px);
+}
+.wheat-text {
+    transform: translateY(-3px);
 }
