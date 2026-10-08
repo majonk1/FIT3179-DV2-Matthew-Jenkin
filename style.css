@@ -119,3 +119,24 @@ h2 {
     width: 100%;
     min-width: 0;
 }
+.export-row {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+.export-text {
+    line-height: 1.5;
+    margin-top: 15px;
+    transform: translateY(-18px);
+}
+.export-text h3 {
+    margin-top: 0;
+}
+.export-row .visualisation-chart {
+    min-width: 0;
+}
+#agricultural-exports-flow {
+    width: 100%;
+    min-width: 0;
+}

@@ -40,3 +40,10 @@ vegaEmbed(
         actions: false
     }
 );
+vegaEmbed(
+    "#agricultural-exports-flow",
+    "vegalite_visualisations/chart7_agricultural_exports_flow.vl.json",
+    {
+        actions: false
+    }
+);

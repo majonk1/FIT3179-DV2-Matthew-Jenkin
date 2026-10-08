@@ -1,0 +1,314 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Australian Agricultural Export Flows",
+    "subtitle": "Major commodities and export destinations 2024–25"
+    },
+    "width": 600,
+    "height": 400,
+    "padding": {
+    "left": 10,
+    "top": 10,
+    "right": 80,
+    "bottom": 10
+    },
+    "background": "white",
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/agricultural_exports.csv"
+    },
+    "transform": [
+    {
+        "calculate": "datum.Commodity == 'Beef' ? 5.5 : datum.Commodity == 'Wheat' ? 4.5 : datum.Commodity == 'Barley' ? 3.5 : datum.Commodity == 'Wool' ? 2.5 : 1.5",
+        "as": "CommodityPosition"
+    },
+    {
+        "calculate": "datum.Destination == 'China' ? 5.5 : datum.Destination == 'Japan' ? 4.5 : datum.Destination == 'United States' ? 3.5 : datum.Destination == 'Indonesia' ? 2.5 : datum.Destination == 'South Korea' ? 1.5 : 0.5",
+        "as": "DestinationPosition"
+    },
+    {
+        "fold": [
+        "CommodityPosition",
+        "DestinationPosition"
+        ],
+        "as": ["Stage", "Position"]
+    },
+    {
+        "calculate": "datum.Stage == 'CommodityPosition' ? 0 : 1",
+        "as": "StageX"
+    }
+    ],
+    "encoding": {
+    "x": {
+        "field": "StageX",
+        "type": "quantitative",
+        "scale": {
+        "domain": [-0.5, 1.5]
+        },
+        "axis": null
+    },
+    "y": {
+        "field": "Position",
+        "type": "quantitative",
+        "scale": {
+        "domain": [0, 6]
+        },
+        "axis": null
+    }
+    },
+    "layer": [
+    {
+        "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "strokeCap": "round"
+        },
+        "encoding": {
+        "detail": [
+            {
+            "field": "Commodity",
+            "type": "nominal"
+            },
+            {
+            "field": "Destination",
+            "type": "nominal"
+            }
+        ],
+        "order": {
+            "field": "StageX",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Commodity",
+            "type": "nominal",
+            "scale": {
+            "domain": [
+                "Beef",
+                "Wheat",
+                "Barley",
+                "Wool",
+                "Cheese and curd"
+            ],
+            "range": [
+                "#E76F51",
+                "#4C78A8",
+                "#F2A541",
+                "#9D70B8",
+                "#66B2AE"
+            ]
+            },
+            "legend": null
+        },
+        "strokeWidth": {
+            "field": "ExportValue",
+            "type": "quantitative",
+            "scale": {
+            "type": "sqrt",
+            "range": [0.5, 18]
+            },
+            "legend": {
+            "title": "Export Value (A$ million)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "stroke",
+            "symbolSize": 500,
+            "values": [1000, 2000, 3000, 4000, 5000],
+            "format": ",.0f",
+            "columnPadding": 15,
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "titlePadding": 12
+            }
+        },
+        "opacity": {
+            "condition": {
+            "param": "CommodityHover",
+            "value": 0.9,
+            "empty": true
+            },
+            "value": 0.08
+        }
+        }
+    },
+    {
+        "params": [
+        {
+            "name": "CommodityHover",
+            "select": {
+            "type": "point",
+            "fields": ["Commodity"],
+            "on": "mouseover",
+            "clear": "mouseout"
+            }
+        }
+        ],
+        "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "strokeCap": "round",
+        "strokeWidth": 22,
+        "opacity": 0.001
+        },
+        "encoding": {
+        "detail": [
+            {
+            "field": "Commodity",
+            "type": "nominal"
+            },
+            {
+            "field": "Destination",
+            "type": "nominal"
+            }
+        ],
+        "order": {
+            "field": "StageX",
+            "type": "quantitative"
+        },
+        "tooltip": [
+            {
+            "field": "Commodity",
+            "type": "nominal",
+            "title": "Commodity"
+            },
+            {
+            "field": "Destination",
+            "type": "nominal",
+            "title": "Destination"
+            },
+            {
+            "field": "ExportValue",
+            "type": "quantitative",
+            "title": "Export Value (A$ million)",
+            "format": ",.2f"
+            }
+        ]
+        }
+    },
+    {
+        "transform": [
+        {
+            "filter": "datum.Stage == 'CommodityPosition'"
+        },
+        {
+            "aggregate": [
+            {
+                "op": "count",
+                "as": "Count"
+            }
+            ],
+            "groupby": [
+            "Commodity",
+            "Position",
+            "StageX"
+            ]
+        }
+        ],
+        "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#303a2b"
+        },
+        "encoding": {
+        "text": {
+            "field": "Commodity",
+            "type": "nominal"
+        },
+        "opacity": {
+            "condition": {
+            "param": "CommodityHover",
+            "value": 1,
+            "empty": true
+            },
+            "value": 0.25
+        }
+        }
+    },
+    {
+        "transform": [
+        {
+            "filter": "datum.Stage == 'DestinationPosition'"
+        },
+        {
+            "aggregate": [
+            {
+                "op": "count",
+                "as": "Count"
+            }
+            ],
+            "groupby": [
+            "Destination",
+            "Position",
+            "StageX"
+            ]
+        }
+        ],
+        "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#303a2b"
+        },
+        "encoding": {
+        "text": {
+            "field": "Destination",
+            "type": "nominal"
+        }
+        }
+    },
+    {
+        "data": {
+        "values": [
+            {
+            "StageX": 0,
+            "Position": 5.95,
+            "Label": "Agricultural Commodities"
+            },
+            {
+            "StageX": 1,
+            "Position": 5.95,
+            "Label": "Export Destinations"
+            }
+        ]
+        },
+        "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#3f5f3b",
+        "baseline": "bottom",
+        "dy": 10
+        },
+        "encoding": {
+        "text": {
+            "field": "Label",
+            "type": "nominal"
+        }
+        }
+    }
+    ],
+    "config": {
+    "view": {
+        "stroke": null
+    },
+    "font": "Arial",
+    "title": {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#303a2b",
+        "subtitleFontSize": 12,
+        "subtitleColor": "#555555",
+        "anchor": "middle"
+    },
+    "legend": {
+        "labelFontSize": 11,
+        "titleFontSize": 12,
+        "labelColor": "#303a2b",
+        "titleColor": "#303a2b"
+    }
+    }
+}
