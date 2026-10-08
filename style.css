@@ -104,3 +104,18 @@ h2 {
     width: 100%;
     min-width: 0;
 }
+.crop-share-row {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    margin-top: 40px;
+}
+.crop-share-text {
+    transform: translateY(0);
+}
+.crop-share-text h3 {
+    margin-top: 0;
+}
+#crop-production-share-chart {
+    width: 100%;
+    min-width: 0;
+}

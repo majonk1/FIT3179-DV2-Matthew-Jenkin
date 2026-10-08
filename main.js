@@ -33,3 +33,10 @@ vegaEmbed(
         actions: false
     }
 );
+vegaEmbed(
+    "#crop-production-share-chart",
+    "vegalite_visualisations/chart6_crop_production_share.vl.json",
+    {
+        actions: false
+    }
+);

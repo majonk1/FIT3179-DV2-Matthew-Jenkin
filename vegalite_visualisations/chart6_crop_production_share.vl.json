@@ -1,0 +1,149 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Australia's Changing Crop Production Mix",
+    "subtitle": "Share of combined production for five major crops 1985–86 to 2021–22",
+    "anchor": "start"
+    },
+    "width": "container",
+    "height": 350,
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/crop_production_over_time.csv"
+    },
+    "transform": [
+    {
+        "calculate": "toNumber(slice(datum.Year, 0, 4))",
+        "as": "YearStart"
+    },
+    {
+        "joinaggregate": [
+        {
+            "op": "sum",
+            "field": "Production",
+            "as": "TotalProduction"
+        }
+        ],
+        "groupby": ["Year"]
+    },
+    {
+        "calculate": "datum.Production / datum.TotalProduction",
+        "as": "ProductionShare"
+    }
+    ],
+    "mark": {
+    "type": "area"
+    },
+    "params": [
+    {
+        "name": "selectedCrop",
+        "select": {
+        "type": "point",
+        "fields": ["Crop"]
+        },
+        "bind": "legend"
+    }
+    ],
+    "encoding": {
+    "x": {
+        "field": "YearStart",
+        "type": "quantitative",
+        "title": "Year",
+        "scale": {
+        "domain": [1985, 2021],
+        "nice": false
+        },
+        "axis": {
+        "format": "d",
+        "tickMinStep": 1,
+        "grid": false
+        }
+    },
+    "y": {
+        "field": "ProductionShare",
+        "type": "quantitative",
+        "title": "Share of Combined Crop Production",
+        "stack": "zero",
+        "scale": {
+        "domain": [0, 1]
+        },
+        "axis": {
+        "format": ".0%",
+        "grid": true,
+        "gridColor": "#E8E8E8",
+        "gridOpacity": 0.5
+        }
+    },
+    "color": {
+        "field": "Crop",
+        "type": "nominal",
+        "title": "Crop",
+        "scale": {
+        "domain": [
+            "Wheat",
+            "Barley",
+            "Canola",
+            "Oats",
+            "Sorghum"
+        ],
+        "range": [
+            "#4C78A8",
+            "#F2A541",
+            "#54A24B",
+            "#9467BD",
+            "#72B7B2"
+        ]
+        },
+        "legend": {
+        "values": [
+            "Wheat",
+            "Sorghum",
+            "Oats",
+            "Canola",
+            "Barley"
+        ]
+        }
+    },
+    "opacity": {
+        "condition": {
+        "param": "selectedCrop",
+        "value": 1
+        },
+        "value": 0.25
+    },
+    "order": {
+        "field": "Crop",
+        "type": "nominal",
+        "sort": [
+        "Wheat",
+        "Barley",
+        "Canola",
+        "Oats",
+        "Sorghum"
+        ]
+    },
+    "tooltip": [
+        {
+        "field": "Year",
+        "type": "nominal",
+        "title": "Financial Year"
+        },
+        {
+        "field": "Crop",
+        "type": "nominal",
+        "title": "Crop"
+        },
+        {
+        "field": "ProductionShare",
+        "type": "quantitative",
+        "title": "Share of Production",
+        "format": ".1%"
+        },
+        {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Production (tonnes)",
+        "format": ",.0f"
+        }
+    ]
+    }
+}
