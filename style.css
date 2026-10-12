@@ -76,13 +76,13 @@ h2 {
     margin-bottom: 0;
 }
 .visualisation-text h3 {
-    font-size: 14px;
+    font-size: 16px;
     color: #3f5f3b;
     margin-top: 0;
     margin-bottom: 18px;
 }
 .visualisation-text {
-    font-size: 12px;
+    font-size: 14px;
 }
 .visualisation-section > h2 {
     margin-bottom: 30px;
@@ -139,4 +139,54 @@ h2 {
 #agricultural-exports-flow {
     width: 100%;
     min-width: 0;
+}
+.highlight-wheat {
+    color: #4C78A8;
+    font-weight: bold;
+}
+.highlight-barley {
+    color: #F2A541;
+    font-weight: bold;
+}
+.highlight-canola {
+    color: #54A24B;
+    font-weight: bold;
+}
+.highlight-oats {
+    color: #9467BD;
+    font-weight: bold;
+}
+.highlight-sorghum {
+    color: #72B7B2;
+    font-weight: bold;
+}
+.highlight-green {
+    color: #3F7D44;
+    font-weight: bold;
+}
+.highlight-orange {
+    color: #C77723;
+    font-weight: bold;
+}
+.highlight-blue {
+    color: #4C78A8;
+    font-weight: bold;
+}
+.introduction-text {
+    max-width: 550px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #303a2b;
+}
+.highlight-beef {
+    color: #E9775C;
+    font-weight: bold;
+}
+.highlight-wool {
+    color: #9B73B5;
+    font-weight: bold;
+}
+.highlight-cheese {
+    color: #66B2AE;
+    font-weight: bold;
 }
