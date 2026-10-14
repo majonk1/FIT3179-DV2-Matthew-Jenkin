@@ -226,3 +226,25 @@ h2 {
     width: 160px;
     vertical-align: middle;
 }
+.crop-heatmap-row {
+    margin-top: 50px;
+    align-items: flex-start;
+}
+#crop-production-heatmap {
+    width: 100%;
+    min-width: 0;
+}
+.crop-heatmap-text {
+    padding-top: 0;
+}
+.crop-heatmap-text h3 {
+    margin-top: 0;
+}
+.highlight-dark-green {
+    color: #176B38;
+    font-weight: bold;
+}
+.highlight-light-green {
+    color: #83B96F;
+    font-weight: bold;
+}

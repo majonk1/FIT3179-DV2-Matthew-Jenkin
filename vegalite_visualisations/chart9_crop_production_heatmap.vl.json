@@ -1,0 +1,114 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Crop Production Across Australian States",
+    "subtitle": "Production of major crops by state (tonnes)"
+    },
+    "width": 550,
+    "height": 300,
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/main/data/crop_production.csv"
+    },
+    "transform": [
+    {
+        "filter": "datum.State !== 'Australia'"
+    }
+    ],
+    "params": [
+    {
+        "name": "hover",
+        "select": {
+        "type": "point",
+        "fields": ["State", "Crop"],
+        "on": "pointerover",
+        "clear": "pointerout"
+        }
+    }
+    ],
+    "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 2,
+    "cornerRadius": 3
+    },
+    "encoding": {
+    "x": {
+        "field": "State",
+        "type": "nominal",
+        "title": null,
+        "sort": [
+        "Western Australia",
+        "South Australia",
+        "Victoria",
+        "New South Wales",
+        "Queensland",
+        "Tasmania"
+        ],
+        "axis": {
+        "labelAngle": -35,
+        "labelFontSize": 12
+        }
+    },
+    "y": {
+        "field": "Crop",
+        "type": "nominal",
+        "title": null,
+        "sort": [
+        "Wheat",
+        "Barley",
+        "Canola",
+        "Oats",
+        "Sorghum"
+        ],
+        "axis": {
+        "labelFontSize": 13
+        }
+    },
+    "color": {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Production (tonnes)",
+        "scale": {
+        "type": "sqrt",
+        "scheme": "greens"
+        },
+        "legend": {
+        "orient": "right",
+        "format": "~s"
+        }
+    },
+    "opacity": {
+        "condition": {
+        "param": "hover",
+        "value": 1,
+        "empty": true
+        },
+        "value": 0.5
+    },
+    "tooltip": [
+        {
+        "field": "State",
+        "type": "nominal",
+        "title": "State"
+        },
+        {
+        "field": "Crop",
+        "type": "nominal",
+        "title": "Crop"
+        },
+        {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Production (tonnes)",
+        "format": ",.0f"
+        }
+    ]
+    },
+    "config": {
+    "font": "Arial",
+    "background": "white",
+    "view": {
+        "stroke": null
+        }
+    }
+}

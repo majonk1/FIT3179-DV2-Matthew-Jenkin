@@ -54,3 +54,10 @@ vegaEmbed(
         actions: false
     }
 );
+vegaEmbed(
+    "#crop-production-heatmap",
+    "vegalite_visualisations/chart9_crop_production_heatmap.vl.json",
+    {
+        actions: false
+    }
+);
