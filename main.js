@@ -47,3 +47,10 @@ vegaEmbed(
         actions: false
     }
 );
+vegaEmbed(
+    "#livestock-dot-density",
+    "vegalite_visualisations/chart8_livestock_dot_density.vl.json",
+    {
+        actions: false
+    }
+);

@@ -190,3 +190,39 @@ h2 {
     color: #66B2AE;
     font-weight: bold;
 }
+.livestock-density-row {
+    margin-top: 50px;
+    align-items: flex-start;
+}
+#livestock-dot-density {
+    width: 100%;
+    min-width: 0;
+}
+.livestock-density-text {
+    padding-top: 0;
+}
+#livestock-dot-density .vega-bindings {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+}
+#livestock-dot-density .vega-bind {
+    margin-bottom: 10px;
+}
+#livestock-dot-density .vega-bind-name {
+    display: inline-block;
+    min-width: 110px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+#livestock-dot-density select {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+#livestock-dot-density input[type="range"] {
+    width: 160px;
+    vertical-align: middle;
+}

@@ -1,0 +1,155 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Australian Livestock Distribution",
+    "subtitle": "Each dot represents 100,000 animals."
+    },
+    "width": 600,
+    "height": 450,
+    "params": [
+    {
+        "name": "livestock_selection",
+        "value": "All Animals",
+        "bind": {
+        "input": "select",
+        "options": [
+            "All Animals",
+            "Sheep",
+            "Cattle",
+            "Pigs"
+        ],
+        "name": "Livestock: "
+        }
+    },
+    {
+        "name": "zoom_level",
+        "value": 600,
+        "bind": {
+        "input": "range",
+        "min": 500,
+        "max": 4000,
+        "step": 50,
+        "name": "Zoom: "
+        }
+    },
+    {
+        "name": "center_to",
+        "value": [134, -27],
+        "bind": {
+        "input": "select",
+        "options": [
+            [134, -27],
+            [147, -32],
+            [145, -37],
+            [144, -42],
+            [153, -23],
+            [135, -30],
+            [121, -26],
+            [133, -19]
+        ],
+        "labels": [
+            "Australia",
+            "New South Wales",
+            "Victoria",
+            "Tasmania",
+            "Queensland",
+            "South Australia",
+            "Western Australia",
+            "Northern Territory"
+        ],
+        "name": "Map Centre: "
+        }
+    }
+    ],
+    "projection": {
+    "type": "mercator",
+    "center": {
+        "expr": "center_to"
+    },
+    "scale": {
+        "expr": "zoom_level"
+    }
+    },
+    "layer": [
+    {
+        "data": {
+        "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/main/data/australia_states.geojson",
+        "format": {
+            "type": "json",
+            "property": "features"
+        }
+        },
+        "mark": {
+        "type": "geoshape",
+        "fill": "#F1F1F1",
+        "stroke": "#777777",
+        "strokeWidth": 0.8
+        }
+    },
+    {
+        "data": {
+        "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/livestock_dot_density.csv"
+        },
+        "transform": [
+        {
+            "filter": "livestock_selection === 'All Animals' || datum.Livestock === livestock_selection"
+        }
+        ],
+        "mark": {
+        "type": "circle",
+        "size": 16,
+        "opacity": 0.75
+        },
+        "encoding": {
+        "longitude": {
+            "field": "Longitude",
+            "type": "quantitative"
+        },
+        "latitude": {
+            "field": "Latitude",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Livestock",
+            "type": "nominal",
+            "title": "Livestock Type",
+            "scale": {
+            "domain": [
+                "Sheep",
+                "Cattle",
+                "Pigs"
+            ],
+            "range": [
+                "#72C478",
+                "#457B9D",
+                "#C65D7B"
+            ]
+            },
+            "legend": {
+            "orient": "right",
+            "symbolSize": 100,
+            "titleFontSize": 13,
+            "labelFontSize": 12
+            }
+        },
+        "tooltip": [
+            {
+            "field": "State",
+            "type": "nominal",
+            "title": "State"
+            },
+            {
+            "field": "Livestock",
+            "type": "nominal",
+            "title": "Livestock"
+            }
+        ]
+        }
+    }
+    ],
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}
