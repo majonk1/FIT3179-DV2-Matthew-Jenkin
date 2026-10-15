@@ -50,7 +50,7 @@
     "color": {
         "field": "GrossValue",
         "type": "quantitative",
-        "title": "Gross value ($)",
+        "title": "Gross value($)",
         "scale": {
         "scheme": "greens"
         },

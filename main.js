@@ -61,3 +61,10 @@ vegaEmbed(
         actions: false
     }
 );
+vegaEmbed(
+    "#crop-value-bubble-chart",
+    "vegalite_visualisations/chart10_production_vs_value.vl.json",
+    {
+        actions: false
+    }
+);

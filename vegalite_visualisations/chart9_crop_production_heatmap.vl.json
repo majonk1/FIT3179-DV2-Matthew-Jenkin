@@ -67,7 +67,7 @@
     "color": {
         "field": "Production",
         "type": "quantitative",
-        "title": "Production (tonnes)",
+        "title": "Production(tonnes)",
         "scale": {
         "type": "sqrt",
         "scheme": "greens"
@@ -99,7 +99,7 @@
         {
         "field": "Production",
         "type": "quantitative",
-        "title": "Production (tonnes)",
+        "title": "Production(tonnes)",
         "format": ",.0f"
         }
     ]

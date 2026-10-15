@@ -248,3 +248,17 @@ h2 {
     color: #83B96F;
     font-weight: bold;
 }
+.crop-value-row {
+    margin-top: 50px;
+    align-items: flex-start;
+}
+#crop-value-bubble-chart {
+    width: 100%;
+    min-width: 0;
+}
+.crop-value-text {
+    padding-top: 0;
+}
+.crop-value-text h3 {
+    margin-top: 0;
+}

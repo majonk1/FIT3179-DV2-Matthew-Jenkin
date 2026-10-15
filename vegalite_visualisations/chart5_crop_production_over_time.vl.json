@@ -54,7 +54,7 @@
         "y": {
             "field": "Production",
             "type": "quantitative",
-            "title": "Production (tonnes, log scale)",
+            "title": "Production(tonnes)",
             "scale": {
             "type": "log",
             "domain": [10000, 100000000]
@@ -129,7 +129,7 @@
             {
             "field": "Production",
             "type": "quantitative",
-            "title": "Production (tonnes)",
+            "title": "Production(tonnes)",
             "format": ",.0f"
             }
         ]

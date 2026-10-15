@@ -1,0 +1,138 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Crop Production vs Agricultural Value",
+    "subtitle": "Production of the major crops compared with total agricultural gross value by state",
+    "anchor": "middle",
+    "fontSize": 18,
+    "subtitleFontSize": 13
+    },
+    "width": 550,
+    "height": 350,
+    "data": {
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/agricultural_production_vs_value.csv"
+    },
+    "transform": [
+    {
+        "calculate": "datum.TotalCropProduction / 1000000",
+        "as": "ProductionMillions"
+    },
+    {
+        "calculate": "datum.GrossValue / 1000000000",
+        "as": "ValueBillions"
+    }
+    ],
+    "params": [
+    {
+        "name": "hover",
+        "select": {
+        "type": "point",
+        "fields": ["State"],
+        "on": "pointerover",
+        "clear": "pointerout"
+        }
+    }
+    ],
+    "mark": {
+    "type": "circle",
+    "stroke": "white",
+    "strokeWidth": 1.5
+    },
+    "encoding": {
+    "x": {
+        "field": "ProductionMillions",
+        "type": "quantitative",
+        "title": "Crop Production of the major crops(million tonnes)",
+        "scale": {
+        "zero": true
+        },
+        "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13
+        }
+    },
+    "y": {
+        "field": "ValueBillions",
+        "type": "quantitative",
+        "title": "Gross Agricultural Value(A$ billion)",
+        "scale": {
+        "zero": true
+        },
+        "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13
+        }
+    },
+    "size": {
+        "field": "GrossValue",
+        "type": "quantitative",
+        "scale": {
+        "type": "sqrt",
+        "range": [200, 1800]
+        },
+        "legend": null
+    },
+    "color": {
+        "field": "State",
+        "type": "nominal",
+        "scale": {
+        "domain": [
+            "New South Wales",
+            "Victoria",
+            "Queensland",
+            "South Australia",
+            "Western Australia",
+            "Tasmania"
+        ],
+        "range": [
+            "#4477AA",
+            "#EE8866",
+            "#228833",
+            "#CCBB44",
+            "#AA3377",
+            "#66CCEE"
+        ]
+        },
+        "legend": {
+        "title": "State",
+        "orient": "right",
+        "titleFontSize": 14,
+        "labelFontSize": 12
+        }
+    },
+    "opacity": {
+        "condition": {
+        "param": "hover",
+        "value": 0.9,
+        "empty": true
+        },
+        "value": 0.25
+    },
+    "tooltip": [
+        {
+        "field": "State",
+        "type": "nominal",
+        "title": "State"
+        },
+        {
+        "field": "TotalCropProduction",
+        "type": "quantitative",
+        "title": "Crop Production of the major crops(tonnes)",
+        "format": ",.0f"
+        },
+        {
+        "field": "GrossValue",
+        "type": "quantitative",
+        "title": "Gross Agricultural Value(A$)",
+        "format": ",.0f"
+        }
+    ]
+    },
+    "config": {
+    "font": "Arial",
+    "background": "white",
+    "view": {
+        "stroke": null
+    }
+    }
+}

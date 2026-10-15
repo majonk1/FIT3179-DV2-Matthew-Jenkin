@@ -98,7 +98,7 @@
         "x": {
             "field": "Production",
             "type": "quantitative",
-            "title": "Production (tonnes)",
+            "title": "Production(tonnes)",
             "axis": {
                 "format": "~s"
             }
@@ -112,7 +112,7 @@
             {
                 "field": "Production",
                 "type": "quantitative",
-                "title": "Production (tonnes)",
+                "title": "Production(tonnes)",
                 "format": ",.0f"
             }
         ]

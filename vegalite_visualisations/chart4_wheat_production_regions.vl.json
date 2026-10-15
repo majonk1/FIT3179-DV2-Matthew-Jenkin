@@ -48,7 +48,7 @@
     "x": {
         "field": "Production",
         "type": "quantitative",
-        "title": "Wheat Production (tonnes)",
+        "title": "Wheat Production(tonnes)",
         "axis": {
         "format": "~s"
         }
@@ -68,7 +68,7 @@
         {
         "field": "Production",
         "type": "quantitative",
-        "title": "Wheat Production (t)",
+        "title": "Wheat Production(tonnes)",
         "format": ",.0f"
         }
     ]

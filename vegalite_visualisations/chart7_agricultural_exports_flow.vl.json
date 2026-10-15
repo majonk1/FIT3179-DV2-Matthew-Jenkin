@@ -106,7 +106,7 @@
             "range": [0.5, 18]
             },
             "legend": {
-            "title": "Export Value (A$ million)",
+            "title": "Export Value(A$ million)",
             "orient": "bottom",
             "direction": "horizontal",
             "symbolType": "stroke",
@@ -177,7 +177,7 @@
             {
             "field": "ExportValue",
             "type": "quantitative",
-            "title": "Export Value (A$ million)",
+            "title": "Export Value(A$ million)",
             "format": ",.2f"
             }
         ]
