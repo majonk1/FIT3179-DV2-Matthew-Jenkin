@@ -2,10 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
     "text": "Crop Production vs Agricultural Value",
-    "subtitle": "Production of the major crops compared with total agricultural gross value by state",
-    "anchor": "middle",
-    "fontSize": 18,
-    "subtitleFontSize": 13
+    "subtitle": "Production of the major crops compared with total agricultural gross value by state"
     },
     "width": 550,
     "height": 350,
