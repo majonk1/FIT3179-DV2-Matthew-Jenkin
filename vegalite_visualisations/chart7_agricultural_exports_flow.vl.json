@@ -122,7 +122,7 @@
         "opacity": {
             "condition": {
             "param": "CommodityHover",
-            "value": 0.9,
+            "value": 1,
             "empty": true
             },
             "value": 0.08

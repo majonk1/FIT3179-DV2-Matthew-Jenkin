@@ -74,9 +74,10 @@
     "opacity": {
         "condition": {
         "param": "hover",
-        "value": 1
+        "value": 1,
+        "empty": true
         },
-        "value": 0.8
+        "value": 0.6
     }
     }
 }

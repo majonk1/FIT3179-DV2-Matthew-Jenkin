@@ -111,7 +111,8 @@
         "opacity": {
             "condition": {
             "param": "hoverCrop",
-            "value": 1
+            "value": 1,
+            "empty": true
             },
             "value": 0.3
         },

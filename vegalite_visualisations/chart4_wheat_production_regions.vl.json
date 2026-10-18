@@ -83,6 +83,13 @@
         "encoding": {
         "x2": {
             "datum": 0
+        },
+        "opacity": {
+            "condition": {
+                "param": "region_hover",
+                "value": 1
+            },
+            "value": 0.4
         }
         }
     },
@@ -93,23 +100,25 @@
             "select": {
             "type": "point",
             "fields": ["Region"],
-            "on": "mouseover",
-            "clear": "mouseout"
+            "on": "pointerover",
+            "clear": "pointerout"
             }
         }
         ],
         "mark": {
         "type": "point",
         "filled": true,
-        "size": 140
+        "size": 140,
+        "color": "#789A49"
         },
         "encoding": {
-        "color": {
+        "opacity": {
             "condition": {
             "param": "region_hover",
-            "value": "#3f5f3b"
+            "value": 1,
+            "empty": true
             },
-            "value": "#789A49"
+            "value": 0.4
         }
         }
     }
