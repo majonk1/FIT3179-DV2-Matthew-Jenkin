@@ -1,13 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-    "text": "Crop Production vs Agricultural Value",
-    "subtitle": "Production of the major crops compared with total agricultural gross value by state"
+    "text": "Crop Production vs Agricultural Value vs Population",
+    "subtitle": "Production of the major crops compared with total agricultural gross value by state and comparing their populations"
     },
     "width": 550,
     "height": 350,
     "data": {
-    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/agricultural_production_vs_value.csv"
+    "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/agricultural_production_vs_value_vs_population.csv"
     },
     "transform": [
     {
