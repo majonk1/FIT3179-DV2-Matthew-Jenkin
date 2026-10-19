@@ -258,3 +258,15 @@ h2 {
 .crop-value-text h3 {
     margin-top: 0;
 }
+.highlight-nsw {
+    color: #4477AA;
+    font-weight: bold;
+}
+.highlight-victoria {
+    color: #EE8866;
+    font-weight: bold;
+}
+.highlight-wa {
+    color: #AA3377;
+    font-weight: bold;
+}
