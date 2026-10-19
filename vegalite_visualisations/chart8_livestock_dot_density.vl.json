@@ -26,7 +26,7 @@
         "value": 600,
         "bind": {
         "input": "range",
-        "min": 500,
+        "min": 600,
         "max": 4000,
         "step": 50,
         "name": "Zoom: "
@@ -81,9 +81,9 @@
         },
         "mark": {
         "type": "geoshape",
-        "fill": "#F1F1F1",
-        "stroke": "#777777",
-        "strokeWidth": 0.8
+        "fill": "#e8e5dc",
+        "stroke": "white",
+        "strokeWidth": 1
         }
     },
     {

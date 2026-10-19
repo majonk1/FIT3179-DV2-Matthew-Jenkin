@@ -46,7 +46,7 @@
         },
         "params": [
         {
-            "name": "livestockHover",
+            "name": "hover",
             "select": {
             "type": "point",
             "on": "pointerover",
@@ -118,7 +118,7 @@
         ],
         "opacity": {
             "condition": {
-            "param": "livestockHover",
+            "param": "hover",
             "value": 1,
             "empty": true
             },

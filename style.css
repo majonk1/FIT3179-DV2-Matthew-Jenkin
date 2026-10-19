@@ -8,9 +8,14 @@ body {
 }
 h1 {
     color: #3f5f3b;
+    text-align: center;
 }
 h2 {
     color: #789a49;
+    text-align: left;
+}
+.website-subtitle {
+    text-align: center;
 }
 .visualisation-section{
     margin-top: 30px;
@@ -83,9 +88,6 @@ h2 {
 }
 .visualisation-text {
     font-size: 14px;
-}
-.visualisation-section > h2 {
-    margin-bottom: 30px;
 }
 .crop-text {
     transform: translateY(18px);
@@ -171,12 +173,6 @@ h2 {
 .highlight-blue {
     color: #4C78A8;
     font-weight: bold;
-}
-.introduction-text {
-    max-width: 550px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #303a2b;
 }
 .highlight-beef {
     color: #E9775C;

@@ -86,7 +86,7 @@
         },
         "opacity": {
             "condition": {
-                "param": "region_hover",
+                "param": "hover",
                 "value": 1
             },
             "value": 0.4
@@ -96,7 +96,7 @@
     {
         "params": [
         {
-            "name": "region_hover",
+            "name": "hover",
             "select": {
             "type": "point",
             "fields": ["Region"],
@@ -114,7 +114,7 @@
         "encoding": {
         "opacity": {
             "condition": {
-            "param": "region_hover",
+            "param": "hover",
             "value": 1,
             "empty": true
             },

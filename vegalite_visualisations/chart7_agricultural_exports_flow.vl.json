@@ -121,7 +121,7 @@
         },
         "opacity": {
             "condition": {
-            "param": "CommodityHover",
+            "param": "hover",
             "value": 1,
             "empty": true
             },
@@ -132,7 +132,7 @@
     {
         "params": [
         {
-            "name": "CommodityHover",
+            "name": "hover",
             "select": {
             "type": "point",
             "fields": ["Commodity"],
@@ -217,7 +217,7 @@
         },
         "opacity": {
             "condition": {
-            "param": "CommodityHover",
+            "param": "hover",
             "value": 1,
             "empty": true
             },

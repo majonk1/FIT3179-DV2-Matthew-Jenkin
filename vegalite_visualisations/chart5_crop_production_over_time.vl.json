@@ -24,7 +24,7 @@
         },
         "params": [
         {
-            "name": "hoverCrop",
+            "name": "hover",
             "select": {
             "type": "point",
             "fields": ["Crop"],
@@ -110,7 +110,7 @@
         },
         "opacity": {
             "condition": {
-            "param": "hoverCrop",
+            "param": "hover",
             "value": 1,
             "empty": true
             },
