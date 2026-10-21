@@ -17,6 +17,15 @@ h2 {
 .website-subtitle {
     text-align: center;
 }
+.website-introduction {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #303a2b;
+    text-align: left;
+}
+p {
+    line-height: 1.5;
+}
 .visualisation-section{
     margin-top: 30px;
     margin-bottom: 50px;
@@ -128,7 +137,6 @@ h2 {
     align-items: start;
 }
 .export-text {
-    line-height: 1.5;
     margin-top: 15px;
     transform: translateY(-18px);
 }

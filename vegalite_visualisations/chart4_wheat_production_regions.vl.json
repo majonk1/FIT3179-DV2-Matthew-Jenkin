@@ -6,7 +6,7 @@
     "anchor": "start"
     },
     "width": 600,
-    "height": 350,
+    "height": 390,
     "data": {
     "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/wheat_production_by_region.csv",
     "format": {

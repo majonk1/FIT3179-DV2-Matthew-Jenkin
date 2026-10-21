@@ -5,7 +5,7 @@
     "subtitle": "Production of the major crops compared with total agricultural gross value by state and comparing their populations"
     },
     "width": 550,
-    "height": 350,
+    "height": 375,
     "data": {
     "url": "https://raw.githubusercontent.com/majonk1/FIT3179-DV2-Matthew-Jenkin/refs/heads/main/data/agricultural_production_vs_value_vs_population.csv"
     },
