@@ -274,3 +274,26 @@ p {
     color: #EE8866;
     font-weight: bold;
 }
+.references-section {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.references-section h2 {
+    color: #789a49;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.references-section p {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #303a2b;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+.references-section a {
+    color: #3F7D44;
+    text-decoration: underline;
+}
+.references-section a:hover {
+    color: #176B38;
+}
